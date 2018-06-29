@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+set -u
+
+cd "$(dirname "${0}")/../"
+
+# Install SDL2 based on O.S.
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
+    # Linux
+    if ! command -v apt-get >/dev/null 2>&1; then
+        echo "This script only supports Debian-based distros"
+        exit 1
+    fi
+    sudo apt-get install libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev
+elif [[ "${OSTYPE}" == "darwin"* ]]; then
+    # Mac OSX
+    if ! command -v brew >/dev/null 2>&1; then
+        echo "Please install Homebrew: https://brew.sh/index_it"
+        exit 1
+    fi
+    brew install sdl2{,_image,_mixer,_ttf,_gfx} pkg-config
+else
+    echo "This script doesn't support the current O.S."
+    exit 1
+fi
+
+# Get go-sdl2 packages
+go get -v github.com/veandco/go-sdl2/sdl
+go get -v github.com/veandco/go-sdl2/img
+go get -v github.com/veandco/go-sdl2/mix
+go get -v github.com/veandco/go-sdl2/ttf
