@@ -1,6 +1,8 @@
 package matrigo
 
-func InitMatrigo(c *MatrigoConf) error {
+// Init the package. The client must call this function with a valid
+// configuration at the beginning of the ui setup
+func Init(c *Conf) error {
 	ui = &sdlWrapper{conf: c}
 
 	err := ui.initSdl()
@@ -33,6 +35,7 @@ func InitMatrigo(c *MatrigoConf) error {
 	return err
 }
 
+// Close everything. To be called by the client before quitting.
 func Close() error {
 	err := ui.closeRenderer()
 	if err != nil {
@@ -48,6 +51,9 @@ func Close() error {
 	return nil
 }
 
+// Draw what needs to be drawn down.
+// It draws the background image and color, all the images and then syncs
+// the frame rate to the value in the fpsTarget variable
 func Draw(matrix *Matrix) {
 	ui.drawBackground()
 
@@ -55,8 +61,10 @@ func Draw(matrix *Matrix) {
 		ui.drawImage(tile, getMatrixOffset(matrix))
 	}
 
-	ui.syncFPS()
-	ui.countedFrames++
+	if ui.conf.SyncFPS {
+		ui.syncFPS()
+	}
+	debugFPS()
 
 	ui.renderer.Present()
 	if ui.conf.BackgroundColor != nil {
@@ -70,10 +78,8 @@ func Draw(matrix *Matrix) {
 	ui.renderer.Clear()
 }
 
-/*
-Calculate draw offset of the matrix, currently commented out because mouse events must be
-re-calculated based on offset
-*/
+// Calculate draw offset of the matrix, currently commented out because mouse events must be
+// re-calculated based on offset
 func getMatrixOffset(matrix *Matrix) *imageOffset {
 	// matrixSide := int32(math.Sqrt(float64(len(*matrix.Tiles))))
 	// matrixWidth := matrixSide * ui.conf.TileSize

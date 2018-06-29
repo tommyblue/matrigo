@@ -13,10 +13,8 @@ func (ui *sdlWrapper) syncFPS() {
 
 	tick := time.Now()
 	elapsedMS := float64(tick.Sub(ui.timer)) / float64(time.Millisecond)
-	if sleep := TICKSPERFRAME - elapsedMS; sleep > 0 {
+	if sleep := ticksPerFrame - elapsedMS; sleep > 0 {
 		d := time.Duration(sleep)
 		sdl.Delay(uint32(d))
 	}
-
-	debugFPS()
 }
