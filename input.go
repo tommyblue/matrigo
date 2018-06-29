@@ -3,7 +3,6 @@ package matrigo
 import (
 	"fmt"
 
-	"github.com/tommyblue/minesweeper"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -37,7 +36,7 @@ func ManageInput(inputInterface Input) {
 			}
 			break
 		case *sdl.QuitEvent:
-			if minesweeper.IsDebug() {
+			if ui.conf.Debug {
 				println("Quitting...")
 			}
 			inputInterface.Quit()
