@@ -17,7 +17,7 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq libsdl2{,-mixer,-image,-ttf,-gfx}-dev
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq xorg-dev libsdl2{,-mixer,-image,-ttf,-gfx}-dev
       - run: go get -v github.com/veandco/go-sdl2/{sdl,img,mix,ttf}
       - run: go get github.com/mattn/goveralls
       - run: go test -v -cover -race -coverprofile=/go/src/coverage.out

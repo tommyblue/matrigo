@@ -22,6 +22,7 @@ func (ui *sdlWrapper) initFonts() error {
 			return err
 		}
 		fonts[fontName] = font
+		// TODO: The default font should be chosen by the user
 		if defaultFont == nil {
 			defaultFont = font
 		}

@@ -1,3 +1,13 @@
+/*
+Package matrigo provides an abstraction layer over go-sdl2.
+
+It works for tile-based words, like famous games Sokoban, Minesweeper and Tetris.
+
+The client sends a configuration object during the initialization and this package
+exposes few methods to draw tiles and manage input from the user.
+
+For usage examples see the Readme file in the package repository: https://github.com/tommyblue/matrigo
+*/
 package matrigo
 
 // Init the package. The client must call this function with a valid
