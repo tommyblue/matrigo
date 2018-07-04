@@ -8,6 +8,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/tommyblue/matrigo)](https://goreportcard.com/report/github.com/tommyblue/matrigo)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5a06431db17428d9d4c83b4eace7215)](https://www.codacy.com/app/tommyblue/matrigo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tommyblue/matrigo&amp;utm_campaign=Badge_Grade)
+
 MatriGo is an abstraction layer library over [go-sdl2](https://github.com/veandco/go-sdl2) for matrix-based games
 
 API Documentation: https://godoc.org/github.com/tommyblue/matrigo
