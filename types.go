@@ -38,6 +38,8 @@ type Tile struct {
 	ImageID string // Absolute path to the image file
 	PosX    int32  // X position (column) of the tile in the matrix
 	PosY    int32  // Y position (row) of the tile in the matrix
+	OffsetX int32  // Offset in the X direction in pixels
+	OffsetY int32  // Offset in the Y direction in pixels
 }
 
 // Matrix represents the whole tiles (i.e. images) to draw in the window

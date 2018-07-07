@@ -97,8 +97,8 @@ func (ui *sdlWrapper) drawImage(tile Tile, offset *imageOffset) error {
 	if offset == nil {
 		offset = &imageOffset{x: 0, y: 0}
 	}
-	x := offset.x + imageStruct.rect.W*tile.PosX
-	y := offset.y + imageStruct.rect.H*tile.PosY
+	x := offset.x + imageStruct.rect.W*tile.PosX + tile.OffsetX
+	y := offset.y + imageStruct.rect.H*tile.PosY + tile.OffsetY
 
 	dst := sdl.Rect{X: x, Y: y, W: imageStruct.rect.W, H: imageStruct.rect.H}
 	err = ui.renderer.Copy(imageStruct.image, &imageStruct.rect, &dst)
