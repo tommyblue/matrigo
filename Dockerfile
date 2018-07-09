@@ -1,8 +1,10 @@
 FROM circleci/golang:1.9
 
+ENV DISPLAY :99
+
 RUN sudo apt-get update \
     && sudo apt-get install --no-install-recommends --yes \
-    libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev \
+    libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-gfx-dev xvfb \
     && sudo apt-get clean \
     && sudo rm -rf /root/.cache \
     && sudo rm -rf /var/lib/apt/lists/*
@@ -18,4 +20,4 @@ COPY . /go/src/github.com/tommyblue/matrigo
 
 WORKDIR /go/src/github.com/tommyblue/matrigo
 
-CMD ["go", "test", "./..."]
+CMD ["./script/docker-test"]

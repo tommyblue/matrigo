@@ -64,54 +64,54 @@ func Test_sdlWrapper_initFonts(t *testing.T) {
 	})
 }
 
-// func Test_sdlWrapper_initWindow(t *testing.T) {
-// 	t.Run("Initialize SDL window", func(t *testing.T) {
-// 		ui := &sdlWrapper{
-// 			conf: &Conf{
-// 				Title: "Test",
-// 				Window: &Window{
-// 					Width:  100,
-// 					Height: 100,
-// 				},
-// 			},
-// 		}
-// 		if ui.window != nil {
-// 			t.Errorf("ui.window should be nil at this point")
-// 		}
-// 		err := ui.initWindow()
-// 		if err != nil {
-// 			t.Errorf("Error occurring initializing ui.window: %v", err)
-// 		}
-// 		if ui.window == nil {
-// 			t.Errorf("ui.window shouldn't be nil at this point")
-// 		}
-// 	})
-// }
+func Test_sdlWrapper_initWindow(t *testing.T) {
+	t.Run("Initialize SDL window", func(t *testing.T) {
+		ui := &sdlWrapper{
+			conf: &Conf{
+				Title: "Test",
+				Window: &Window{
+					Width:  100,
+					Height: 100,
+				},
+			},
+		}
+		if ui.window != nil {
+			t.Errorf("ui.window should be nil at this point")
+		}
+		err := ui.initWindow()
+		if err != nil {
+			t.Errorf("Error occurring initializing ui.window: %v", err)
+		}
+		if ui.window == nil {
+			t.Errorf("ui.window shouldn't be nil at this point")
+		}
+	})
+}
 
-// func Test_sdlWrapper_initRenderer(t *testing.T) {
-// 	t.Run("Initialize SDL renderer", func(t *testing.T) {
-// 		ui := &sdlWrapper{
-// 			conf: &Conf{
-// 				Title: "Test",
-// 				Window: &Window{
-// 					Width:  100,
-// 					Height: 100,
-// 				},
-// 			},
-// 		}
-// 		err := ui.initWindow()
-// 		if err != nil {
-// 			t.Errorf("Error occurring initializing ui.window: %v", err)
-// 		}
-// 		if ui.renderer != nil {
-// 			t.Errorf("ui.window should be nil at this point")
-// 		}
-// 		err = ui.initRenderer()
-// 		if err != nil {
-// 			t.Errorf("Error occurring initializing ui.renderer: %v", err)
-// 		}
-// 		if ui.renderer == nil {
-// 			t.Errorf("ui.renderer shouldn't be nil at this point")
-// 		}
-// 	})
-// }
+func Test_sdlWrapper_initRenderer(t *testing.T) {
+	t.Run("Initialize SDL renderer", func(t *testing.T) {
+		ui := &sdlWrapper{
+			conf: &Conf{
+				Title: "Test",
+				Window: &Window{
+					Width:  100,
+					Height: 100,
+				},
+			},
+		}
+		err := ui.initWindow()
+		if err != nil {
+			t.Errorf("Error occurring initializing ui.window: %v", err)
+		}
+		if ui.renderer != nil {
+			t.Errorf("ui.window should be nil at this point")
+		}
+		err = ui.initRenderer()
+		if err != nil {
+			t.Errorf("Error occurring initializing ui.renderer: %v", err)
+		}
+		if ui.renderer == nil {
+			t.Errorf("ui.renderer shouldn't be nil at this point")
+		}
+	})
+}
