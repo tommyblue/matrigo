@@ -67,8 +67,8 @@ func Close() error {
 func Draw(matrix *Matrix) {
 	ui.drawBackground()
 
-	for _, tile := range *matrix.Tiles {
-		ui.drawImage(tile, getMatrixOffset(matrix))
+	for _, tile := range matrix.Tiles {
+		ui.drawImage(*tile, getMatrixOffset(matrix))
 	}
 
 	if ui.conf.SyncFPS {

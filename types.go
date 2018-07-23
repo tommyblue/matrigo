@@ -44,7 +44,7 @@ type Tile struct {
 
 // Matrix represents the whole tiles (i.e. images) to draw in the window
 type Matrix struct {
-	Tiles *[]Tile // Array of tiles
+	Tiles []*Tile // Array of tiles
 }
 
 type imageStruct struct {
